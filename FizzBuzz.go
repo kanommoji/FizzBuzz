@@ -4,16 +4,15 @@ import "strconv"
 
 func ConvertNumberToFizzBuzz(number int) string {
 	var stringNumber string
-	stringNumber = strconv.Itoa(number)
-	if number%3 == 0 {
-		stringNumber = "Fizz"
+	fizzBuzz := []string{"Fizz", "Buzz"}
+	condition := []int{3, 5}
+	for index, c := range condition {
+		if number%c == 0 {
+			stringNumber += fizzBuzz[index]
+		}
 	}
-	if number%5 == 0 {
-		stringNumber = "Buzz"
-	}
-	if number%15 == 0 {
-		stringNumber = "FizzBuzz"
+	if stringNumber == "" {
+		stringNumber = strconv.Itoa(number)
 	}
 	return stringNumber
-
 }
