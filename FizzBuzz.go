@@ -3,16 +3,16 @@ package fizzbuzz
 import "strconv"
 
 func ConvertNumberToFizzBuzz(number int) string {
-	fizzBuzzMaps := make(map[int]string)
-	fizzBuzzMaps[3] = "Fizz"
-	fizzBuzzMaps[5] = "Buzz"
+	fizzBuzzMaps := map[int]string{
+		3: "Fizz",
+		5: "Buzz",
+	}
 
 	var stringNumber string
-	if number%3 == 0 {
-		stringNumber += fizzBuzzMaps[3]
-	}
-	if number%5 == 0 {
-		stringNumber += fizzBuzzMaps[5]
+	for keyMap, fizzBuzzMap := range fizzBuzzMaps {
+		if number%keyMap == 0 {
+			stringNumber += fizzBuzzMap
+		}
 	}
 	if stringNumber == "" {
 		stringNumber = strconv.Itoa(number)
